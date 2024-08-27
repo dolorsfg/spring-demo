@@ -15,7 +15,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  dependency-info:
+  build:
 
     runs-on: ubuntu-latest
 
