@@ -29,3 +29,16 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package 
+
+    - name: Dependency review
+      uses: actions/dependency-review-action@v4
+      # Commonly enabled options, see https://github.com/actions/dependency-review-action#configuration-options for all available options.
+      with:
+        comment-summary-in-pr: always
+        #fail-on-scopes: development
+        fail-on-severity: high
+        deny-licenses: GPL-1.0-or-later, LGPL-2.0-or-later
+        warn-only: true
+        base-ref: ${{ github.event.pull_request.base.sha || 'main' }}
+        head-ref: ${{ github.event.pull_request.head.sha || github.ref }}
+        #retry-on-snapshot-warnings: true
