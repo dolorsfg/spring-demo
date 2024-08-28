@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Dependency review
-      uses: actions/dependency-review-action@v4
+      uses: actions/dependency-review-action@v4.3.4
       # Commonly enabled options, see https://github.com/actions/dependency-review-action#configuration-options for all available options.
       with:
         comment-summary-in-pr: always
